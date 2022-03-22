@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -9,13 +9,14 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
-    <PackageReference Include="nunit" Version="3.11.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+    <PackageReference Include="nunit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-    <PackageReference Include="SpecFlow" Version="3.0.213" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.0.213" />
-    <PackageReference Include="SpecFlow.NUnit" Version="3.0.213" />
+    <PackageReference Include="SpecFlow" Version="3.9.52" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.52" />
     <PackageReference Include="FluentAssertions" Version="5.6.0" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.9.52" />
+    <PackageReference Include="SpecFlow.Assist.Dynamic" Version="1.4.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,5 +31,17 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FavouriteList.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\PlayerCheracter.feature">
+      <Visible>False</Visible>
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PlayerCheracter.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GVSCore\GVSCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="SpecFlow.NUnit" />
+    <None Remove="SpecFlow.Assist.Dynamic" />
   </ItemGroup>
 </Project>
